@@ -1,0 +1,158 @@
+﻿canada_develop_button_n_qb = {
+	name = canada_develop_button_n_qb
+	desc = canada_develop_button_n_qb_desc
+
+	visible = { always = yes }
+
+	possible = {
+		average_sol >= 10
+		
+		GDP >= 100000
+		hidden_trigger = {
+			NOT = { has_variable = qb_develop }
+		}
+	}
+	
+	effect = {
+		set_global_variable = enable_north_quebec_dev
+		set_variable = {
+			name = qb_develop
+		}
+	}
+	ai_chance = {
+		base = 1
+	}
+}
+
+canada_develop_button_n_ot = {
+	name = canada_develop_button_n_ot
+	desc = canada_develop_button_n_ot_desc
+
+	visible = { always = yes }
+
+	possible = {
+		average_sol >= 10
+		
+		GDP >= 25000000
+		hidden_trigger = {
+			NOT = { has_variable = ot_develop }
+		}
+	}
+	
+
+	effect = {
+		set_global_variable = enable_north_ot_dev
+		set_variable = {
+			name = ot_develop
+		}
+	}
+	ai_chance = {
+		base = 1
+	}
+}
+
+canada_develop_button_n_mn = {
+	name = canada_develop_button_n_mn
+	desc = canada_develop_button_n_mn_desc
+
+	visible = { always = yes }
+
+	possible = {
+		average_sol >= 10
+		
+		GDP >= 40000000
+		hidden_trigger = {
+			NOT = { has_variable = mn_develop }
+		}
+	}
+
+	effect = {
+		set_global_variable = enable_north_mn_dev
+		set_variable = {
+			name = mn_develop
+		}
+	}
+
+	ai_chance = {
+		base = 1
+	}
+}
+
+canada_develop_button_n_sk = {
+	name = canada_develop_button_n_sk
+	desc = canada_develop_button_n_sk_desc
+
+	visible = { always = yes }
+
+	possible = {
+		average_sol >= 10
+		
+		GDP >= 50000000
+		hidden_trigger = {
+			NOT = { has_variable = sk_develop }
+		}
+	}
+
+	effect = {
+		set_global_variable = enable_north_sk_dev
+		set_variable = {
+			name = sk_develop
+		}
+	}
+	ai_chance = {
+		base = 1
+	}
+}
+
+canada_develop_button_n_ab = {
+	name = canada_develop_button_n_ab
+	desc = canada_develop_button_n_ab_desc
+
+	visible = { always = yes }
+
+	possible = {
+		average_sol >= 10
+		
+		GDP >= 60000000
+		hidden_trigger = {
+			NOT = { has_variable = ab_develop }
+		}
+	}
+
+	effect = {
+		set_global_variable = enable_north_ab_dev
+		set_variable = {
+			name = ab_develop
+		}
+	}
+
+	ai_chance = {
+		base = 1
+	}
+}
+
+canada_develop_button_n_bc = {
+	name = canada_develop_button_n_bc
+	desc = canada_develop_button_n_bc_desc
+
+	visible = { always = yes }
+
+	possible = {
+		average_sol >= 10
+		
+		GDP >= 80000000
+		hidden_trigger = {
+			NOT = { has_variable = bc_develop }
+		}
+	}
+
+	effect = {
+		set_global_variable = enable_north_bc_dev
+		set_variable = {
+			name = bc_develop
+		}
+	}
+	ai_chance = {
+		base = 1
+	}
+}

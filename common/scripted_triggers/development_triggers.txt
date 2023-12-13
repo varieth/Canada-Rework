@@ -1,0 +1,19 @@
+in_development = {
+	OR = {
+		has_state_trait = state_trait_northeast_provincial_terrain_level_1
+		has_state_trait = state_trait_north_prarie_provincial_terrain_level_1
+		has_state_trait = state_trait_athabasca_provincial_terrain_level_1
+		has_state_trait = state_trait_north_bc_provincial_terrain_level_1
+		has_state_trait = state_trait_northern_canadian_terrain_level_1
+	}
+}
+
+full_development = {
+	OR = {
+		has_state_trait = state_trait_northeast_provincial_terrain_level_2
+		has_state_trait = state_trait_north_prarie_provincial_terrain_level_2
+		has_state_trait = state_trait_athabasca_provincial_terrain_level_2
+		has_state_trait = state_trait_north_bc_provincial_terrain_level_2
+		has_state_trait = state_trait_northern_canadian_terrain_level_2
+	}
+}

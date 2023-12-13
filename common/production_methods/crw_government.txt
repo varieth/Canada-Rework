@@ -1,0 +1,25 @@
+﻿pm_hbc_small_port = {
+	texture = "gfx/interface/icons/production_method_icons/basic_port.dds"
+	
+	low_pop_method = yes # AI will activate this method for states with low population
+	
+	building_modifiers = {
+		workforce_scaled = {
+			building_employment_laborers_add = 50
+			building_employment_clerks_add = 50
+			building_employment_bureaucrats_add = 50
+			goods_input_clippers_add = 2
+		}
+	}
+	
+	country_modifiers = {
+		workforce_scaled = {
+			country_convoys_capacity_add = 20
+		}
+	}
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = 2
+		}
+	}
+}

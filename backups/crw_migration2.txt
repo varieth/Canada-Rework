@@ -1,0 +1,57 @@
+﻿
+crw_migration.2 = {
+	type = country_event
+	placement = ROOT
+	
+	title = crw_migration.2.t
+	desc = crw_migration.2.d
+	flavor = crw_migration.2.f
+	
+	event_image = {
+		video = "asia_poor_people_moving"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by je_south_america_migration
+	}
+
+	option = {
+		name = crw_migration.2.a
+		default_option = yes
+		custom_tooltip = {
+			text = crw_migration_button_exists_tt
+			set_variable = enable_crw_migration_button
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_canada_north_migration
+			}
+			custom_tooltip = {
+				text = wa_migration2_tt
+				every_scope_state = {
+					limit = {
+						is_incorporated = yes
+						OR = {
+							region = sr:region_canada_north_west
+							region = sr:region_canada_north_east
+						}
+					}
+					add_modifier = {
+						name = sa_migration_attraction
+						months = long_modifier_time
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+}

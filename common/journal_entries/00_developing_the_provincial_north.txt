@@ -1,0 +1,75 @@
+﻿je_canada_north_develop = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_technology
+
+	is_shown_when_inactive = {
+		is_player = yes
+		NOT = { has_global_variable = je_canada_north_develop }
+		OR = {
+			any_scope_state = {
+				state_region = s:STATE_ONTARIO
+			}
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+		has_technology_researched = watertube_boiler
+		has_technology_researched = dynamite
+		has_technology_researched = steam_donkey 
+		c:CAN ?= THIS
+		any_scope_state = {
+			state_region = s:STATE_ONTARIO
+		}
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+		}
+	}
+
+	complete = {
+		
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			has_state_trait = state_trait_northeast_provincial_terrain_level_2
+		}
+		any_scope_state = {
+			state_region = s:STATE_ONTARIO
+			has_state_trait = state_trait_northeast_provincial_terrain_level_2
+		}
+		any_scope_state = {
+			state_region = s:STATE_MANITOBA
+			has_state_trait = state_trait_north_prarie_provincial_terrain_level_2	
+		}
+		any_scope_state = {
+			state_region = s:STATE_SASKATCHEWAN
+			has_state_trait = state_trait_north_prarie_provincial_terrain_level_2	
+		}
+		any_scope_state = {
+			state_region = s:STATE_ALBERTA
+			has_state_trait = state_trait_athabasca_provincial_terrain_level_2
+		}
+		any_scope_state = {
+			state_region = s:STATE_BRITISH_COLUMBIA
+			has_state_trait = state_trait_north_bc_provincial_terrain_level_2	
+		}
+	}
+	
+	on_complete = {
+		
+		trigger_event = { id = developing_hinterlands.13 }
+	}
+	
+	scripted_button = canada_develop_button_n_qb
+	scripted_button = canada_develop_button_n_ot
+	scripted_button = canada_develop_button_n_mn
+	scripted_button = canada_develop_button_n_sk
+	scripted_button = canada_develop_button_n_ab
+	scripted_button = canada_develop_button_n_bc
+	
+	weight = 50
+}
+

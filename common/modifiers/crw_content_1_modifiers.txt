@@ -1,0 +1,60 @@
+﻿canada_territories_mining = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_migration_pull_mult = 0.2
+	building_lead_mine_throughput_add  = 0.10
+	building_coal_mine_throughput_add  = 0.10
+	building_iron_mine_throughput_add = 0.10
+	building_gold_mine_throughput_add = 0.10
+}
+
+the_gold_of_the_canadas = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_gold_mine_throughput_add = 0.2
+}
+
+quebec_iron = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	building_iron_mine_throughput_add = 0.2
+}
+
+canada_development_cooldown_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	state_construction_mult = -0.15
+	building_group_bg_construction_laborers_mortality_mult = 0.1
+	building_group_bg_plantations_laborers_mortality_mult = 0.1
+}
+
+canada_development_completion_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_migration_pull_mult = 0.05
+}
+
+canada_development_event_major_migration_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_migration_pull_mult = 0.35
+}
+
+canada_development_event_bad_major_migration_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	state_migration_pull_mult = -0.35
+}
+
+canada_development_event_bad_minor_migration_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	state_migration_pull_mult = -0.1
+}
+
+canada_development_event_minor_migration_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_positive.dds
+	state_migration_pull_mult = 0.05
+}
+
+canada_development_expense_modifier = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+	country_expenses_add = 50000
+}
+
+canada_strong_arm_provinces = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_tax_income_add = 50000
+}

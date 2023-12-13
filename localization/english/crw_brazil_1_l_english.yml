@@ -1,0 +1,97 @@
+﻿l_english:
+  crw_migration_completion_tt: "Our incorporated states in #variable Northwest Canada#! and the #variable Hudson Coast#! have met our target population"
+  crw_migration.2.t: "North, Strong and Cold"
+  crw_migration.2.d: "The rich resources of the North is attracting immigrants looking to make it rich"
+  crw_migration.2.f: "It's cold. It's Dark. I can't feel my hands and feet. But it sure beats London!"
+  
+  crw_hl_migration_completion_tt: "Our incorporated states in #variable Canada#! have met our target population"
+  crw_hl_migration.2.t: "North, Strong and Cheap land"
+  crw_hl_migration.2.d: "PH TEXT: The urban and rural life in Upper and Lower Canada is a beacon to poor Europeans looking for a better life"
+  crw_hl_migration.2.f: "PH TEXT: Oy bruv, why is that deer the size of carriage?"
+  
+  crw_hl_migration_button: "Populate the heartland"
+  crw_hl_migration_button_desc: "Populate the heartland"
+  
+  canada_migration_button: "Populate the North"
+  canada_migration_button_desc: "Populate the North"
+  
+  canada_migration_button_nb: "New Brunswick Migration"
+  canada_migration_button_nb_desc: "New Brunswick Migration"
+  
+  canada_migration_button_qb: "Quebec Migration"
+  canada_migration_button_qb_desc: "Quebec Migration"
+  
+  canada_migration_button_ot: "Ontario Migration"
+  canada_migration_button_ot_desc: "Ontario Migration"
+  
+  canada_migration_button_mn: "Manitoba Migration"
+  canada_migration_button_mn_desc: "Manitoba Migration"
+  
+  canada_migration_button_sk: "Saskatchewan Migration"
+  canada_migration_button_sk_desc:  "Saskatchewan Migration"
+  
+  canada_migration_button_ab: "Alberta Migration"
+  canada_migration_button_ab_desc: "Alberta Migration"
+  
+  canada_migration_button_bc: "British Columbia Migration"
+  canada_migration_button_bc_desc: "British Columbia Migration"
+  
+  canada_migration_button_n_qb: "North Quebec Migration"
+  canada_migration_button_n_qb_desc: "North Quebec Migration"
+  
+  canada_migration_button_n_ot: "North Ontario Migration"
+  canada_migration_button_n_ot_desc: "North Ontario Migration"
+  
+  canada_migration_button_n_mn: "North Manitoba Migration"
+  canada_migration_button_n_mn_desc: "North Manitoba Migration"
+  
+  canada_migration_button_n_sk: "North Saskatchewan Migration"
+  canada_migration_button_n_sk_desc: "North Saskatchewan Migration"
+  
+  canada_migration_button_n_ab: "Athabasca Migration"
+  canada_migration_button_n_ab_desc: "Athabasca Migration"
+  
+  canada_migration_button_n_bc: "North BC Migration"
+  canada_migration_button_n_bc_desc: "North BC Migration"
+  
+  canada_migration_button_yk: "Yukon Migration"
+  canada_migration_button_yk_desc: "Yukon Migration"
+  
+  canada_migration_button_nt: "Northwest Territories Migration"
+  canada_migration_button_nt_desc: "Northwest Territories Migration"
+  
+  canada_migration_button_nk: "Nunavut Migration"
+  canada_migration_button_nk_desc: "Nunavut Migration"
+  
+  
+  crw_migration.4.t: "North, Strong and Cold"
+  crw_migration.4.d: "Canada is a land of potential, riches and cheap land. Many immigrants are attracted at this prospect of a new life."
+  crw_migration.4.f: "Oy bruv, why is that deer the size of carriage?"
+  crw_migration.4.a: "Canada awaits!"
+  crw_migration.2.a: "Canada awaits!"
+  
+  canada_develop_button_n_qb: "Develop North Quebec"
+  canada_develop_button_n_qb_desc: "The iron of Quebec awaits us!"
+  
+  developing_north_quebec_iron: "North Quebec has more than 5 iron mines"
+  developing_north_mines: "Has more than 5 iron mines"
+  developing_north_wood: "Has more than 5 logging camps"
+  developing_north_infra: "Has more than 1 railroads"
+  
+  canada_develop_button_n_ot: "Develop North Ontario"
+  canada_develop_button_n_ot_desc: "Develop North Ontario"
+  
+  canada_develop_button_n_mn: "Develop North Manitoba"
+  canada_develop_button_n_mn_desc: "The Great Northern Lakes await us!"
+  
+  canada_develop_button_n_sk: "Develop North Saskatchewan"
+  canada_develop_button_n_sk_desc: "The Great Northern Lakes await us!"
+  
+  canada_develop_button_n_ab: "Develop Athabasca"
+  canada_develop_button_n_ab_desc: "Athabasca Awaits!"
+  
+  canada_develop_button_n_bc: "Develop North British Columbia"
+  canada_develop_button_n_bc_desc: "There be gold in dem hills!"
+  
+  can_dev_done.a : "Strong arm taxes from the provinces!"
+  can_dev_done.b : "The provinces will pay their dues. To the North! (Not implemented)"

@@ -1,0 +1,47 @@
+﻿je_quebec_iron = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_technology
+	
+	is_shown_when_inactive = {
+		is_player = yes
+		NOT = { has_global_variable = quebec_iron }
+		OR = {
+			any_scope_state = {
+				state_region = s:STATE_QUEBEC
+			}
+		}
+	}
+
+	possible = {
+		has_technology_researched = railways
+		
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+		}
+	}
+
+	
+		
+	complete = {
+	
+		has_technology_researched = watertube_boiler
+		has_technology_researched = dynamite
+		has_technology_researched = steam_donkey 
+		
+		s:STATE_QUEBEC.region_state:CAN = {
+			state_has_building_group_levels  = {
+				type = bg_iron_mining 
+				value  >= 30
+			}
+		}
+		
+	}
+	
+	on_complete = {
+		set_global_variable = quebec_iron
+		trigger_event = { id = the_last_great_frontier.3 }
+	}
+	
+	weight = 50
+}

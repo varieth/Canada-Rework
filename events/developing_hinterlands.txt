@@ -1,0 +1,574 @@
+﻿namespace = developing_hinterlands
+
+# Canada North Quebec
+developing_hinterlands.1 = {
+	type = country_event
+	placement = scope:north_quebec_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.1.t
+	desc = developing_hinterlands.1.d
+	flavor = developing_hinterlands.1.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_QUEBEC
+			}
+			save_scope_as = north_quebec_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.a 
+		default_option = yes
+		scope:north_quebec_state_scope = {
+			add_modifier = {
+				name = canada_development_cooldown_modifier
+				months = 60
+			}
+		}
+		add_modifier = {
+			name = canada_development_expense_modifier
+			months = 60
+		}
+		scope:north_quebec_state_scope.state_region = {
+			remove_state_trait = state_trait_northeast_provincial_terrain
+			add_state_trait = state_trait_northeast_provincial_terrain_level_1
+			add_arable_land = 10
+		}
+	}
+}
+
+developing_hinterlands.2 = {
+	type = country_event
+	placement = scope:north_quebec_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.2.t
+	desc = developing_hinterlands.2.d
+	flavor = developing_hinterlands.2.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_QUEBEC
+			}
+			save_scope_as = north_quebec_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.b
+		default_option = yes
+		scope:north_quebec_state_scope = {
+			add_modifier = {
+				name = canada_development_completion_modifier
+			}
+		}
+		scope:north_quebec_state_scope.state_region = {
+			remove_state_trait = state_trait_northeast_provincial_terrain_level_1
+			add_state_trait = state_trait_northeast_provincial_terrain_level_2
+			add_arable_land = 10
+		}
+	}
+}
+
+# Canada North Ontario
+developing_hinterlands.3 = {
+	type = country_event
+	placement = scope:north_ontario_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.3.t
+	desc = developing_hinterlands.3.d
+	flavor = developing_hinterlands.3.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ONTARIO
+			}
+			save_scope_as = north_ontario_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.a 
+		default_option = yes
+		scope:north_ontario_state_scope = {
+			add_modifier = {
+				name = canada_development_cooldown_modifier
+				months = 60
+			}
+		}
+		add_modifier = {
+			name = canada_development_expense_modifier
+			months = 60
+		}
+		scope:north_ontario_state_scope.state_region = {
+			remove_state_trait = state_trait_northeast_provincial_terrain
+			add_state_trait = state_trait_northeast_provincial_terrain_level_1
+			add_arable_land = 10
+		}
+	}
+}
+
+developing_hinterlands.4 = {
+	type = country_event
+	placement = scope:north_ontario_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.4.t
+	desc = developing_hinterlands.4.d
+	flavor = developing_hinterlands.4.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ONTARIO
+			}
+			save_scope_as = north_ontario_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.b
+		default_option = yes
+		scope:north_ontario_state_scope = {
+			add_modifier = {
+				name = canada_development_completion_modifier
+			}
+		}
+		scope:north_ontario_state_scope.state_region = {
+			remove_state_trait = state_trait_northeast_provincial_terrain_level_1
+			add_state_trait = state_trait_northeast_provincial_terrain_level_2
+			add_arable_land = 10
+		}
+	}
+}
+
+# Canada North Saskatchewan
+developing_hinterlands.5 = {
+	type = country_event
+	placement = scope:north_sk_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.5.t
+	desc = developing_hinterlands.5.d
+	flavor = developing_hinterlands.5.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_SASKATCHEWAN
+			}
+			save_scope_as = north_sk_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.a
+		default_option = yes
+		scope:north_sk_state_scope = {
+			add_modifier = {
+				name = canada_development_cooldown_modifier
+				months = 60
+			}
+		}
+		add_modifier = {
+			name = canada_development_expense_modifier
+			months = 60
+		}
+		scope:north_sk_state_scope.state_region = {
+			remove_state_trait = state_trait_north_prarie_provincial_terrain
+			add_state_trait = state_trait_north_prarie_provincial_terrain_level_1
+			add_arable_land = 10
+		}
+	}
+}
+
+developing_hinterlands.6 = {
+	type = country_event
+	placement = scope:north_sk_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.6.t
+	desc = developing_hinterlands.6.d
+	flavor = developing_hinterlands.6.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_SASKATCHEWAN
+			}
+			save_scope_as = north_sk_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.b
+		default_option = yes
+		scope:north_sk_state_scope = {
+			add_modifier = {
+				name = canada_development_completion_modifier
+			}
+		}
+		scope:north_sk_state_scope.state_region = {
+			remove_state_trait = state_trait_north_prarie_provincial_terrain_level_1
+			add_state_trait = state_trait_north_prarie_provincial_terrain_level_2
+			add_arable_land = 10
+		}
+	}
+}
+
+# Canada North Manitoba
+developing_hinterlands.7 = {
+	type = country_event
+	placement = scope:north_mn_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.7.t
+	desc = developing_hinterlands.7.d
+	flavor = developing_hinterlands.7.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_MANITOBA
+			}
+			save_scope_as = north_mn_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.a
+		default_option = yes
+		scope:north_mn_state_scope = {
+			add_modifier = {
+				name = canada_development_cooldown_modifier
+				months = 60
+			}
+		}
+		add_modifier = {
+			name = canada_development_expense_modifier
+			months = 60
+		}
+		scope:north_mn_state_scope.state_region = {
+			remove_state_trait = state_trait_north_prarie_provincial_terrain
+			add_state_trait = state_trait_north_prarie_provincial_terrain_level_1
+			add_arable_land = 10
+		}
+	}
+}
+
+developing_hinterlands.8 = {
+	type = country_event
+	placement = scope:north_mn_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.8.t
+	desc = developing_hinterlands.8.d
+	flavor = developing_hinterlands.8.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_MANITOBA
+			}
+			save_scope_as = north_mn_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.b
+		default_option = yes
+		scope:north_mn_state_scope = {
+			add_modifier = {
+				name = canada_development_completion_modifier
+			}
+		}
+		scope:north_mn_state_scope.state_region = {
+			remove_state_trait = state_trait_north_prarie_provincial_terrain_level_1
+			add_state_trait = state_trait_north_prarie_provincial_terrain_level_2
+			add_arable_land = 10
+		}
+	}
+}
+
+# Canada North Alberta
+developing_hinterlands.9 = {
+	type = country_event
+	placement = scope:north_ab_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.9.t
+	desc = developing_hinterlands.9.d
+	flavor = developing_hinterlands.9.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ALBERTA
+			}
+			save_scope_as = north_ab_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.a
+		default_option = yes
+		scope:north_ab_state_scope = {
+			add_modifier = {
+				name = canada_development_cooldown_modifier
+				months = 60
+			}
+		}
+		add_modifier = {
+			name = canada_development_expense_modifier
+			months = 60
+		}
+		scope:north_ab_state_scope.state_region = {
+			remove_state_trait = state_trait_athabasca_provincial_terrain
+			add_state_trait = state_trait_athabasca_provincial_terrain_level_1
+			add_arable_land = 10
+		}
+	}
+}
+
+developing_hinterlands.10 = {
+	type = country_event
+	placement = scope:north_ab_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.10.t
+	desc = developing_hinterlands.10.d
+	flavor = developing_hinterlands.10.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_ALBERTA
+			}
+			save_scope_as = north_ab_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.b
+		default_option = yes
+		scope:north_ab_state_scope = {
+			add_modifier = {
+				name = canada_development_completion_modifier
+			}
+		}
+		scope:north_ab_state_scope.state_region = {
+			remove_state_trait = state_trait_athabasca_provincial_terrain_level_1
+			add_state_trait = state_trait_athabasca_provincial_terrain_level_2
+			add_arable_land = 10
+		}
+	}
+}
+
+# Canada North BC
+developing_hinterlands.11 = {
+	type = country_event
+	placement = scope:north_bc_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.11.t
+	desc = developing_hinterlands.11.d
+	flavor = developing_hinterlands.11.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_BRITISH_COLUMBIA
+			}
+			save_scope_as = north_bc_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.a
+		default_option = yes
+		scope:north_bc_state_scope = {
+			add_modifier = {
+				name = canada_development_cooldown_modifier
+				months = 60
+			}
+		}
+		add_modifier = {
+			name = canada_development_expense_modifier
+			months = 60
+		}
+		scope:north_bc_state_scope.state_region = {
+			remove_state_trait = state_trait_north_bc_provincial_terrain
+			add_state_trait = state_trait_north_bc_provincial_terrain_level_1
+			add_arable_land = 10
+		}
+	}
+}
+
+developing_hinterlands.12 = {
+	type = country_event
+	placement = scope:north_bc_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.12.t
+	desc = developing_hinterlands.12.d
+	flavor = developing_hinterlands.12.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_BRITISH_COLUMBIA
+			}
+			save_scope_as = north_bc_state_scope
+		}
+	}
+	
+	option = {
+		name = developing_hinterlands.0.b
+		default_option = yes
+		scope:north_bc_state_scope = {
+			add_modifier = {
+				name = canada_development_completion_modifier
+			}
+		}
+		scope:north_bc_state_scope.state_region = {
+			remove_state_trait = state_trait_north_bc_provincial_terrain_level_1
+			add_state_trait = state_trait_north_bc_provincial_terrain_level_2
+			add_arable_land = 10
+		}
+	}
+}
+
+#COMPLETION
+developing_hinterlands.13 = {
+	type = country_event
+	placement = scope:north_bc_state_scope
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	
+	title = developing_hinterlands.13.t
+	desc = developing_hinterlands.13.d
+	flavor = developing_hinterlands.13.f
+
+	trigger = {
+	}
+	immediate = {
+		random_scope_state = {
+			limit = {
+				state_region = s:STATE_BRITISH_COLUMBIA
+			}
+			save_scope_as = north_bc_state_scope
+		}
+	}
+	
+	option = {
+		name = can_dev_done.a 
+		default_option = yes
+		add_modifier = {
+			name = canada_strong_arm_provinces
+			months = 48
+		}
+		
+	}
+	option = {
+		name = can_dev_done.b 
+		set_global_variable = je_canada_north_fully_developed
+		add_modifier = {
+			name = canada_strong_arm_provinces
+			months = 48
+		}
+	}
+}

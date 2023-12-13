@@ -1,0 +1,13 @@
+﻿l_english:
+ STATE_BRITISH_COLUMBIA:0 "North British Columbia"
+ STATE_ALBERTA:0 "Athabasca"
+ STATE_SASKATCHEWAN:0 "North Saskatchewan"
+ STATE_MANITOBA:0 "North Manitoba"
+ STATE_ONTARIO:0 "North Ontario"
+ STATE_QUEBEC:0 "North Quebec"
+ STATE_LOWER_BRITISH_COLUMBIA:0 "British Columbia"
+ STATE_LOWER_ALBERTA:0 "Alberta"
+ STATE_LOWER_SASKATCHEWAN:0 "Saskatchewan"
+ STATE_LOWER_MANITOBA:0 "Manitoba"
+ STATE_LOWER_ONTARIO:0 "Ontario"
+ STATE_LOWER_QUEBEC:0 "Quebec"

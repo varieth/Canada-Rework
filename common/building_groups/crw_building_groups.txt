@@ -1,0 +1,7 @@
+﻿bg_hbc_port = {
+	parent_group = bg_infrastructure
+	stateregion_max_level = yes
+	is_government_funded = yes
+	
+	urbanization = 2
+}

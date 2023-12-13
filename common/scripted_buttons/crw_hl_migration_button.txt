@@ -1,0 +1,52 @@
+﻿crw_hl_migration_button = {
+	name = crw_hl_migration_button
+	desc = crw_hl_migration_button_desc
+
+	visible = { always = yes }
+
+	possible = {
+		hidden_trigger = {
+			has_variable = enable_crw_hl_migration_button
+		}
+		# Note that this closely reflects triggers in the event. Do not change one without changing both
+		custom_tooltip = {
+			text = migration_button_cooldown_tt
+		#	NOT = { has_variable = sa_migration_cooldown }
+		}
+		any_scope_state = {
+			trigger_if = {
+				limit = {
+					owner = { has_journal_entry = je_canada_heartland_migration }
+				}
+				OR = {
+					region = sr:region_canada
+				}
+			}
+			custom_tooltip = {
+				text = mass_migration_target_tt
+				is_mass_migration_target = no
+			}
+		}
+	}
+
+	effect = {
+		set_variable = {
+			name = sa_migration_cooldown
+			months = normal_modifier_time
+		}
+		custom_tooltip = {
+			text = mass_migration_button_tt
+		}
+		trigger_event = { id = crw_migration.4 popup = yes }
+		show_as_tooltip = {
+			add_modifier = {
+				name = sa_migration_cost
+				months = normal_modifier_time
+			}
+		}
+	}
+
+	ai_chance = {
+		base = 1
+	}
+}

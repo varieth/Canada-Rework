@@ -1,0 +1,12 @@
+{
+  "name" : "Canada Rework",
+  "id" : "crw",
+  "version" : "1.1",
+  "supported_game_version" : "1.5.*",
+  "short_description" : "Canada Rework Overhaul",
+  "tags" : [],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}

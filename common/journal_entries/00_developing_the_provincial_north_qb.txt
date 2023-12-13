@@ -1,0 +1,258 @@
+﻿je_canada_north_develop_qb = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_technology
+	
+	is_shown_when_inactive = {
+		is_player = yes
+	}
+
+	possible = {
+		has_global_variable = enable_north_quebec_dev
+	}
+	
+	immediate = {
+		set_variable = {
+			name = qb_dev
+			value = 0
+		}
+		# startup event
+		trigger_event = {
+			id = developing_hinterlands.1
+			popup = yes
+		}
+	}
+	
+
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					s:STATE_QUEBEC.region_state:CAN = {
+						state_has_building_group_levels  = {
+							type = bg_iron_mining 
+							value  >= 10
+						}
+					}
+					s:STATE_QUEBEC.region_state:CAN = {
+					state_has_building_group_levels  = {
+						type = bg_logging 
+						value  >= 10
+						}
+					}
+					s:STATE_QUEBEC.region_state:CAN = {
+							state_has_building_group_levels  = {
+								type = bg_infrastructure 
+								value  >= 2
+							}
+					}
+					any_scope_state = {
+						state_region = s:STATE_QUEBEC
+						NOT = {
+							has_modifier = canada_development_cooldown_modifier
+						}
+					}
+					
+				}
+				random_list = {
+					20 = {
+						trigger_event = {
+							id = good_dev_event.1
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = 2
+						}
+					}
+					20 = {
+						random_events = {
+							25 = flood_disaster_events.1
+							25 = fire_disaster_events.1
+							25 = hail_disaster_events.1
+							25 = cold_disaster_events.1
+						}
+						change_variable = {
+							name = qb_dev
+							add = -2
+						}
+					}
+					5 = {
+						trigger_event = {
+							id = snow_disaster_events.2
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = -2
+						}
+					}
+					5 = {
+						trigger_event = {
+							id = snow_disaster_events.3
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = -2
+						}
+					}
+					5 = {
+						trigger_event = {
+							id = flood_disaster_events.1
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = -2
+						}
+					}
+					5 = {
+						trigger_event = {
+							id = fire_disaster_events.1
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = -2
+						}
+					}
+					5 = {
+						trigger_event = {
+							id = hail_disaster_events.1
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = -2
+						}
+					}
+					5 = {
+						trigger_event = {
+							id = cold_disaster_events.1
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = -2
+						}
+					}
+					5 = {
+						trigger_event = {
+							id = snow_disaster_events.1
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = -10
+						}
+					}
+					5 = {
+						trigger_event = {
+							id = recovery_disaster_events.3
+							popup = yes
+						}
+						change_variable = {
+							name = qb_dev
+							add = 10
+						}
+					}
+					20 = {
+						change_variable = {
+							name = qb_dev
+							add = 1
+						}
+					}
+					25 = {
+					}
+				}
+			}
+		}
+		
+	}
+	
+	is_progressing = {
+		s:STATE_QUEBEC.region_state:CAN = {
+			state_has_building_group_levels  = {
+				type = bg_iron_mining 
+				value  >= 10
+			}
+		}
+		s:STATE_QUEBEC.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_logging 
+					value  >= 10
+				}
+		}
+		s:STATE_QUEBEC.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_infrastructure 
+					value  >= 2
+				}
+		}
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			NOT = {
+				has_modifier = canada_development_cooldown_modifier
+			}
+		}
+		
+	}
+
+	complete = {
+		s:STATE_QUEBEC.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_iron_mining 
+					value  >= 10
+				}
+			}
+		
+		s:STATE_QUEBEC.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_logging 
+					value  >= 10
+				}
+			}
+		
+		s:STATE_QUEBEC.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_infrastructure 
+					value  >= 2
+				}
+			}
+		
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		
+		any_scope_state = {
+			state_region = s:STATE_QUEBEC
+			NOT = {
+				has_modifier = canada_development_cooldown_modifier
+			}
+		}
+		
+	}
+	
+	current_value = {
+		value = root.var:qb_dev
+	}
+	
+	goal_add_value = {
+		add = 60
+	}
+	
+	on_complete = {
+		trigger_event = {
+			id = developing_hinterlands.2
+			popup = yes
+		}
+	}
+	progressbar = yes
+	should_be_pinned_by_default = yes
+	transferable = no
+	can_revolution_inherit = no
+	weight = 50
+}
+

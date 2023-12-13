@@ -1,0 +1,1350 @@
+﻿namespace = crw_migration
+
+crw_migration.100 = {
+	type = country_event
+	placement = ROOT
+	
+	title = crw_migration.2.t
+	desc = crw_migration.2.d
+	flavor = crw_migration.2.f
+	
+	event_image = {
+		video = "asia_poor_people_moving"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by je_south_america_migration
+	}
+
+	option = {
+		name = crw_migration.2.a
+		default_option = yes
+		custom_tooltip = {
+			set_variable = enable_crw_migration_button
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_canada_north_migration
+			}
+			custom_tooltip = {
+				text = crw_migration_tt
+				every_scope_state = {
+					limit = {
+						OR = {
+							region = sr:region_canada
+						}
+					}
+					add_modifier = {
+						name = sa_migration_attraction
+						months = long_modifier_time
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 1
+		}
+	}
+}
+
+crw_migration.1 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_LOWER_ONTARIO
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.2 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_ONTARIO
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.3 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_LOWER_SASKATCHEWAN
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.4 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_LOWER_QUEBEC
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.5 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_SASKATCHEWAN
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.6 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_LOWER_ALBERTA
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.7 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_ALBERTA
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.8 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_LOWER_BRITISH_COLUMBIA
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.9 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_BRITISH_COLUMBIA
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.10 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_LOWER_MANITOBA
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.11 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_MANITOBA
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.12 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				state_region = s:STATE_NEW_BRUNSWICK
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}
+
+crw_migration.13 = {
+	type = country_event
+	placement = scope:migration_target_state
+	title = crw_migration.4.t
+	desc = crw_migration.4.d
+	flavor = crw_migration.4.f
+	
+	event_image = {
+		video = "southamerica_factory_opening"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_map.dds"
+	
+	duration = 3
+	
+	trigger = {
+		# triggered by southamerica_migration_button
+	}
+
+	immediate = {
+		# Note that this closely reflects triggers in the button. Do not change one without changing both
+		random_country = {
+			limit = {
+				country_rank <= rank_value:major_power
+				custom_tooltip = {
+					text = is_in_europe_tt
+					country_is_in_europe = yes
+				}
+				custom_tooltip = {
+					text = same_state_religion
+					religion = root.religion
+				}
+				average_sol <= root.average_sol
+				any_primary_culture = {
+					culture_can_have_mass_migration_to = ROOT
+				}
+				any_scope_state = {
+					is_incorporated = yes
+					custom_tooltip = {
+						text = is_in_europe_tt
+						state_is_in_europe = yes
+					}
+					count >= 3
+				}
+			}
+			save_scope_as = migration_country
+			random_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_is_in_europe = yes
+					any_scope_culture = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+				}
+				save_scope_as = migration_state
+				random_scope_culture = {
+					limit = {
+						has_homeland = PREV
+						culture_can_have_mass_migration_to = ROOT
+					}
+					save_scope_as = migration_culture
+				}
+			}
+
+		}
+		ordered_scope_state = {
+			limit = {
+				ROOT = {
+					has_journal_entry = je_canada_north_migration
+				}
+				OR = {
+					state_region = s:STATE_QUEBEC
+				}
+				is_incorporated = yes
+				is_mass_migration_target = no
+			}
+			order_by = average_sol
+			save_scope_as = migration_target_state
+		}
+	    
+	}
+
+	option = {
+		name = crw_migration.4.a
+		add_modifier = {
+			name = sa_migration_cost
+			months = normal_modifier_time
+		}
+		scope:migration_target_state = {
+			create_mass_migration = {
+				origin = scope:migration_country
+				culture = scope:migration_culture
+			}
+		}
+	}
+}

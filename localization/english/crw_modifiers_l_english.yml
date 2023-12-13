@@ -1,0 +1,10 @@
+﻿l_english:
+  modifier_state_building_hbc_port_max_level_add:0 "Hudson Bay Port Max Level"
+  modifier_state_building_hbc_port_max_level_add_desc:0 "A bonus or penalty to the maximum level of Hudson Bay Port buildings."
+  canada_territories_mining:0 "Northern mining settlements"
+  the_gold_of_the_canadas:0 "Canadian Gold"
+  quebec_iron:0 "Quebec Iron mines"
+  canada_development_event_major_migration_modifier: "Migratory Boom" 
+  canada_development_event_bad_major_migration_modifier: "Citizens Fleeing Province En Masse" 
+  canada_development_event_bad_minor_migration_modifier: "Citizens Leaving Province" 
+  canada_development_event_minor_migration_modifier: "Migrants Attracted"  

@@ -1,0 +1,10 @@
+﻿HBC = {
+	color = { 99 91 69 }
+	
+	country_type = colonial
+	
+	tier = principality
+	
+	cultures = { anglo_canadian }
+	capital = STATE_LOWER_MANITOBA
+}

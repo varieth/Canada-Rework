@@ -1,0 +1,605 @@
+#SNOWSTORMS/AVALANCHES
+namespace = snow_disaster_events
+snow_disaster_events.1 = { #MAJOR SNOWSTORM
+	type = country_event
+	placement = scope:snow_disaster_state
+
+	title = snow_disaster_events.1.t
+	desc = snow_disaster_events.1.d
+	flavor = snow_disaster_events.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = snow_disaster_state
+		}
+	}
+
+	option = {
+		name = snow_disaster_events.1.a
+		default_option = yes
+		scope:snow_disaster_events = {
+			add_modifier = {
+				name = canada_development_event_bad_major_migration_modifier
+				months = short_modifier_time
+			}
+		}
+		scope:snow_disaster_state = {
+			add_devastation = 66
+		}
+	}
+}
+
+snow_disaster_events.2 = { #DISASTER SNOWSTORM
+	type = country_event
+	placement = scope:snow_disaster_state
+
+	title = snow_disaster_events.2.t
+	desc = snow_disaster_events.2.d
+	flavor = snow_disaster_events.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = snow_disaster_state
+		}
+	}
+
+	option = { #No extra help
+		name = snow_disaster_events.2.a
+		default_option = yes
+		scope:snow_disaster_state.state_region = {
+			add_devastation = 20
+		}
+		custom_tooltip = natural_disaster_variable_tt
+		hidden_effect = {
+			random_list = {
+				20 = {
+					random_scope_state = {
+						limit = {
+							is_incorporated = yes
+						}
+						set_variable = {
+							name = natural_disaster_variable
+							months = short_modifier_time
+						}
+					}
+				}
+				80 = {
+				}
+			}
+		}
+	}
+
+	option = { #
+		name = snow_disaster_events.2.a
+		default_option = yes
+		scope:snow_disaster_events = {
+			add_modifier = {
+				name = canada_development_event_bad_minor_migration_modifier
+				months = short_modifier_time
+			}
+		}
+		scope:snow_disaster_state = {
+			add_devastation = 15
+		}
+	}
+}
+
+snow_disaster_events.3 = { #AVALANCHE
+	type = country_event
+	placement = scope:snow_disaster_state
+
+	title = snow_disaster_events.3.t
+	desc = snow_disaster_events.3.d
+	flavor = snow_disaster_events.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = snow_disaster_state
+		}
+	}
+
+	option = { #No extra help
+		name = snow_disaster_events.3.a
+		default_option = yes
+		scope:snow_disaster_state = {
+			add_devastation = 20
+		}
+		custom_tooltip = natural_disaster_variable_tt
+		hidden_effect = {
+			random_list = {
+				20 = {
+					random_scope_state = {
+						limit = {
+							is_incorporated = yes
+						}
+						set_variable = {
+							name = natural_disaster_variable
+							months = short_modifier_time
+						}
+					}
+				}
+				80 = {
+				}
+			}
+		}
+	}
+
+	option = { #
+		name = snow_disaster_events.3.a
+		default_option = yes
+		scope:snow_disaster_events = {
+			add_modifier = {
+				name = canada_development_event_bad_minor_migration_modifier
+				multiplier = money_amount_multiplier_medium
+				months = short_modifier_time
+			}
+		}
+		scope:snow_disaster_state = {
+			add_devastation = 15
+		}
+	}
+}
+
+#FLOODS
+namespace = flood_disaster_events
+flood_disaster_events.1 = { #MAJOR FLOOD
+	type = country_event
+	placement = scope:flood_disaster_events
+
+	title = flood_disaster_events.1.t
+	desc = flood_disaster_events.1.d
+	flavor = flood_disaster_events.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = flood_disaster_events
+		}
+	}
+
+	option = { #No extra help
+		name = flood_disaster_events.1.a
+		default_option = yes
+		scope:flood_disaster_events.state_region = {
+			add_devastation = 20
+		}
+		custom_tooltip = natural_disaster_variable_tt
+		hidden_effect = {
+			random_list = {
+				20 = {
+					random_scope_state = {
+						limit = {
+							is_incorporated = yes
+						}
+						set_variable = {
+							name = natural_disaster_variable
+							months = short_modifier_time
+						}
+					}
+				}
+				80 = {
+				}
+			}
+		}
+	}
+
+	option = { #
+		name = flood_disaster_events.1.a
+		default_option = yes
+		scope:flood_disaster_events = {
+			add_modifier = {
+				name = canada_development_event_bad_minor_migration_modifier
+				multiplier = money_amount_multiplier_medium
+				months = short_modifier_time
+			}
+		}
+		scope:snow_disaster_state = {
+			add_devastation = 5
+		}
+	}
+}
+
+#WILDFIRES
+namespace = fire_disaster_events
+fire_disaster_events.1 = { #MAJOR FLOOD
+	type = country_event
+	placement = scope:fire_disaster_events
+
+	title = fire_disaster_events.1.t
+	desc = fire_disaster_events.1.d
+	flavor = fire_disaster_events.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				in_development = yes
+			}
+			save_scope_as = fire_disaster_events
+		}
+	}
+
+	option = { #
+		name = fire_disaster_events.1.a
+		default_option = yes
+		scope:fire_disaster_events = {
+			add_devastation = 5
+			add_modifier = {
+				name = canada_development_event_bad_minor_migration_modifier
+				months = 12
+			}
+		}
+	}
+	
+	option = { #
+		name = fire_disaster_events.1.b
+		default_option = yes
+		scope:fire_disaster_events = {
+			add_devastation = 25
+		}
+	}
+}
+
+
+#THUNDERSTORM/HAIL
+namespace = hail_disaster_events
+hail_disaster_events.1 = { #MAJOR FLOOD
+	type = country_event
+	placement = scope:hail_disaster_events
+
+	title = hail_disaster_events.1.t
+	desc = hail_disaster_events.1.d
+	flavor = hail_disaster_events.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = hail_disaster_events
+		}
+	}
+
+	option = { #
+		name = hail_disaster_events.1.a
+		default_option = yes
+		scope:hail_disaster_events = {
+			add_modifier = {
+				name = canada_development_event_bad_minor_migration_modifier
+				months = 12
+			}
+			add_devastation = 5
+		}
+	}
+}
+
+#SHIT IS COLD
+namespace = cold_disaster_events
+cold_disaster_events.1 = { #MAJOR cold
+	type = country_event
+	placement = scope:cold_disaster_events
+
+	title = cold_disaster_events.1.t
+	desc = cold_disaster_events.1.d
+	flavor = cold_disaster_events.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = cold_disaster_events
+		}
+	}
+
+	option = { #
+		name = cold_disaster_events.1.a
+		default_option = yes
+		scope:cold_disaster_events.state_region = {
+			add_modifier = {
+				name = canada_development_event_bad_minor_migration_modifier
+				months = 12
+			}
+			add_devastation = 5
+		}
+	}
+}
+
+#RECOVERY
+namespace = good_dev_event
+good_dev_event.1 = { #MAJOR cold
+	type = country_event
+	placement = scope:good_dev_event
+
+	title = good_dev_event.1.t
+	desc = good_dev_event.1.d
+	flavor = good_dev_event.1.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = good_dev_event
+		}
+	}
+
+	option = { #one year 25% mig buff
+		name = good_dev_event.1.a
+		default_option = yes
+		scope:good_dev_event = {
+			add_modifier = {
+				name = canada_development_event_minor_migration_modifier
+				months = short_modifier_time
+			}
+		}
+	}
+
+	option = { less dev
+		name = good_dev_event.1.b\
+		scope:good_dev_event = {
+			add_devastation = -5
+		}
+	}
+}
+
+good_dev_event.2 = { #MAJOR cold
+	type = country_event
+	placement = scope:good_dev_event
+
+	title = good_dev_event.2.t
+	desc = good_dev_event.2.d
+	flavor = good_dev_event.2.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = good_dev_event
+		}
+	}
+
+	option = { #one year 25% mig buff
+		name = good_dev_event.1.a
+		default_option = yes
+		scope:good_dev_event = {
+			add_modifier = {
+				name = canada_great_migration
+				months = short_modifier_time
+			}
+		}
+	}
+
+	option = { #less dev
+		name = good_dev_event.1.b\
+		scope:good_dev_event = {
+			add_devastation = -25
+		}
+	}
+}
+
+good_dev_event.3 = { #MAJOR cold
+	type = country_event
+	placement = scope:good_dev_event
+
+	title = good_dev_event.3.t
+	desc = good_dev_event.3.d
+	flavor = good_dev_event.3.f
+
+	duration = 3
+
+	event_image = {
+		video = "unspecific_devastation"
+	}
+
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	icon = "gfx/interface/icons/event_icons/event_skull.dds"
+
+	trigger = {
+		any_state = {
+			owner = ROOT
+			in_development = yes
+		}
+	}
+
+	immediate = {
+		random_state = {
+			limit = {
+				owner = ROOT
+				in_development = yes
+			}
+			save_scope_as = good_dev_event
+		}
+	}
+
+	option = { #one year 25% mig buff
+		name = good_dev_event.1.a
+		default_option = yes
+		scope:good_dev_event = {
+			add_modifier = {
+				name = canada_development_event_major_migration_modifier
+				months = medium_modifier_time
+			}
+		}
+	}
+
+	option = { #less dev
+		name = good_dev_event.1.b
+		scope:good_dev_event = {
+			add_devastation = -100
+		}
+	}
+}

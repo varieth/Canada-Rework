@@ -1,0 +1,142 @@
+﻿namespace = the_last_great_frontier
+
+# Canada North
+the_last_great_frontier.1 = {
+	type = country_event
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	placement = scope:the_last_great_frontier_end
+	title = the_last_great_frontier.1.t
+	desc = the_last_great_frontier.1.d
+	flavor = the_last_great_frontier.1.f
+
+	trigger = {
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_region = s:STATE_NUNAVUT
+					state_region = s:STATE_YUKON_TERRITORY
+					state_region = s:STATE_NORTHWEST_TERRITORIES
+				}
+			}
+			save_scope_as = the_last_great_frontier_end
+		}
+	}
+	
+	option = {
+		name = the_last_great_frontier.1.a
+		default_option = yes
+		every_scope_state = {
+			limit = {
+				OR = {
+					state_region = s:STATE_NUNAVUT
+					state_region = s:STATE_YUKON_TERRITORY
+					state_region = s:STATE_NORTHWEST_TERRITORIES
+				}
+			}
+			add_modifier = {
+				name = canada_territories_mining
+			}
+			
+			state_region = {
+				add_arable_land = 30
+			}
+		}
+	}
+}
+
+the_last_great_frontier.2 = {
+	type = country_event
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	placement = scope:the_gold_of_the_canadas_end
+	title = the_last_great_frontier.2.t
+	desc = the_last_great_frontier.2.d
+	flavor = the_last_great_frontier.2.f
+
+	trigger = {
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_region = s:STATE_ONTARIO
+					state_region = s:STATE_QUEBEC
+				}
+			}
+			save_scope_as = the_gold_of_the_canadas_end
+		}
+	}
+	
+	option = {
+		name = the_last_great_frontier.2.a
+		default_option = yes
+		every_scope_state = {
+			limit = {
+				OR = {
+					state_region = s:STATE_ONTARIO
+					state_region = s:STATE_QUEBEC
+				}
+			}
+			add_modifier = {
+				name = the_gold_of_the_canadas 
+			}
+		}
+	}
+}
+
+# Canada North
+the_last_great_frontier.3 = {
+	type = country_event
+	event_image = {
+		video = "unspecific_trains"
+	}
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+	placement = scope:quebec_iron_end
+	title = the_last_great_frontier.3.t
+	desc = the_last_great_frontier.3.d
+	flavor = the_last_great_frontier.3.f
+
+	trigger = {
+	}
+
+	immediate = {
+		random_scope_state = {
+			limit = {
+				OR = {
+					state_region = s:STATE_QUEBEC
+				}
+			}
+			save_scope_as = quebec_iron_end
+		}
+	}
+	
+	option = {
+		name = the_last_great_frontier.3.a
+		default_option = yes
+		every_scope_state = {
+			limit = {
+				OR = {
+					state_region = s:STATE_QUEBEC
+				}
+			}
+			add_modifier = {
+				name = quebec_iron 
+			}
+		}
+	}
+}

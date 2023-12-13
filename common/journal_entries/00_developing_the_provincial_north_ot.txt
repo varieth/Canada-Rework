@@ -1,0 +1,164 @@
+﻿je_canada_north_develop_ot = {
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	group = je_group_technology
+	
+	is_shown_when_inactive = {
+		is_player = yes
+	}
+
+	possible = {
+		has_global_variable = enable_north_ot_dev
+	}
+	
+	immediate = {
+		set_variable = {
+			name = ot_dev
+			value = 0
+		}
+		# startup event
+		trigger_event = {
+			id = developing_hinterlands.3
+			popup = yes
+		}
+	}
+	
+
+	
+	on_monthly_pulse = {
+		effect = {
+			if = {
+				limit = {
+					s:STATE_ONTARIO.region_state:CAN = {
+						state_has_building_group_levels  = {
+							type = bg_mining 
+							value  >= 10
+						}
+					}
+					s:STATE_ONTARIO.region_state:CAN = {
+					state_has_building_group_levels  = {
+						type = bg_logging 
+						value  >= 10
+						}
+					}
+					s:STATE_ONTARIO.region_state:CAN = {
+							state_has_building_group_levels  = {
+								type = bg_infrastructure 
+								value  >= 2
+							}
+					}
+					any_scope_state = {
+						state_region = s:STATE_ONTARIO
+						NOT = {
+							has_modifier = canada_development_cooldown_modifier
+						}
+					}
+					limit = {
+					s:STATE_ONTARIO.region_state:CAN = {
+						devastation < 0.1
+					}
+				}
+				}
+				change_variable = {
+					name = ot_dev
+					add = 1
+				}
+			}
+			else_if = { 
+				limit = {
+					s:STATE_ONTARIO.region_state:CAN = {
+						devastation > 0.25
+					}
+				}
+				change_variable = {
+					name = ot_dev
+					add = -2
+				}
+			}
+		}
+	}
+	
+	is_progressing = {
+		s:STATE_ONTARIO.region_state:CAN = {
+			state_has_building_group_levels  = {
+				type = bg_mining 
+				value  >= 10
+			}
+		}
+		s:STATE_ONTARIO.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_logging 
+					value  >= 10
+				}
+		}
+		s:STATE_ONTARIO.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_infrastructure 
+					value  >= 2
+				}
+		}
+		any_scope_state = {
+			state_region = s:STATE_ONTARIO
+			NOT = {
+				has_modifier = canada_development_cooldown_modifier
+			}			
+		}
+		
+	}
+
+	complete = {
+		s:STATE_ONTARIO.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_mining 
+					value  >= 10
+				}
+			}
+		
+		s:STATE_ONTARIO.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_logging 
+					value  >= 10
+				}
+			}
+		
+		s:STATE_ONTARIO.region_state:CAN = {
+				state_has_building_group_levels  = {
+					type = bg_infrastructure 
+					value  >= 2
+				}
+			}
+		
+		scope:journal_entry = {
+			is_goal_complete = yes
+		}
+		
+		any_scope_state = {
+			state_region = s:STATE_ONTARIO
+			NOT = {
+				has_modifier = canada_development_cooldown_modifier
+			}		
+		}
+		
+	}
+	
+	current_value = {
+		value = root.var:ot_dev
+	}
+	
+	goal_add_value = {
+		add = 60
+	}
+	
+	on_complete = {
+		trigger_event = {
+			id = developing_hinterlands.4
+			popup = yes
+		}
+	}
+	progressbar = yes
+	should_be_pinned_by_default = yes
+	transferable = no
+	can_revolution_inherit = no
+	weight = 50
+}
+
