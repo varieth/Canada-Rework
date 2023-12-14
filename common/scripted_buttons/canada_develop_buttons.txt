@@ -7,7 +7,7 @@
 	possible = {
 		average_sol >= 10
 		
-		GDP >= 100000
+		GDP >= 25000000
 		hidden_trigger = {
 			NOT = { has_variable = qb_develop }
 		}

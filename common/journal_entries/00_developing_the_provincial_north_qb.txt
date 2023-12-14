@@ -55,118 +55,105 @@
 					}
 					
 				}
-				random_list = {
-					20 = {
-						trigger_event = {
-							id = good_dev_event.1
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = 2
-						}
-					}
-					20 = {
-						random_events = {
-							25 = flood_disaster_events.1
-							25 = fire_disaster_events.1
-							25 = hail_disaster_events.1
-							25 = cold_disaster_events.1
-						}
-						change_variable = {
-							name = qb_dev
-							add = -2
-						}
-					}
-					5 = {
-						trigger_event = {
-							id = snow_disaster_events.2
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = -2
-						}
-					}
-					5 = {
-						trigger_event = {
-							id = snow_disaster_events.3
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = -2
-						}
-					}
-					5 = {
-						trigger_event = {
-							id = flood_disaster_events.1
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = -2
-						}
-					}
-					5 = {
-						trigger_event = {
-							id = fire_disaster_events.1
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = -2
-						}
-					}
-					5 = {
-						trigger_event = {
-							id = hail_disaster_events.1
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = -2
-						}
-					}
-					5 = {
-						trigger_event = {
-							id = cold_disaster_events.1
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = -2
-						}
-					}
-					5 = {
-						trigger_event = {
-							id = snow_disaster_events.1
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = -10
-						}
-					}
-					5 = {
-						trigger_event = {
-							id = recovery_disaster_events.3
-							popup = yes
-						}
-						change_variable = {
-							name = qb_dev
-							add = 10
-						}
-					}
-					20 = {
-						change_variable = {
-							name = qb_dev
-							add = 1
-						}
-					}
-					25 = {
-					}
+				change_variable = {
+					name = qb_dev
+					add = 1
 				}
+			}
+		}
+		random_list = {
+			1 = {
+				trigger_event = {
+					id = good_dev_event.1
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+							add = 2
+				}
+			}
+			1 = {
+				trigger_event = {
+					id = snow_disaster_events.2
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+					add = -2
+				}
+			}
+			1 = {
+				trigger_event = {
+					id = snow_disaster_events.3
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+					add = -2
+				}
+			}
+			1 = {
+				trigger_event = {
+					id = flood_disaster_events.1
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+					add = -2
+				}
+			}
+			1 = {
+				trigger_event = {
+					id = fire_disaster_events.1
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+					add = -2
+				}
+			}
+			1 = {
+				trigger_event = {
+					id = hail_disaster_events.1
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+					add = -2
+				}
+			}
+			1 = {
+				trigger_event = {
+					id = cold_disaster_events.1
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+					add = -2
+				}
+			}
+			1 = {
+				trigger_event = {
+					id = snow_disaster_events.1
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+					add = -10
+				}
+			}
+			1 = {
+				trigger_event = {
+					id = recovery_disaster_events.3
+					popup = yes
+				}
+				change_variable = {
+					name = qb_dev
+					add = 10
+				}
+			}
+			91 = {
+				
 			}
 		}
 		

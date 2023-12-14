@@ -38,14 +38,14 @@ snow_disaster_events.1 = { #MAJOR SNOWSTORM
 	option = {
 		name = snow_disaster_events.1.a
 		default_option = yes
-		scope:snow_disaster_events = {
+		scope:snow_disaster_state = {
 			add_modifier = {
 				name = canada_development_event_bad_major_migration_modifier
-				months = short_modifier_time
+				months = 12
 			}
 		}
-		scope:snow_disaster_state = {
-			add_devastation = 66
+		scope:snow_disaster_state.state_region = {
+			add_devastation = 66.6
 		}
 	}
 }
@@ -85,42 +85,16 @@ snow_disaster_events.2 = { #DISASTER SNOWSTORM
 		}
 	}
 
-	option = { #No extra help
-		name = snow_disaster_events.2.a
-		default_option = yes
-		scope:snow_disaster_state.state_region = {
-			add_devastation = 20
-		}
-		custom_tooltip = natural_disaster_variable_tt
-		hidden_effect = {
-			random_list = {
-				20 = {
-					random_scope_state = {
-						limit = {
-							is_incorporated = yes
-						}
-						set_variable = {
-							name = natural_disaster_variable
-							months = short_modifier_time
-						}
-					}
-				}
-				80 = {
-				}
-			}
-		}
-	}
-
 	option = { #
 		name = snow_disaster_events.2.a
 		default_option = yes
 		scope:snow_disaster_events = {
 			add_modifier = {
 				name = canada_development_event_bad_minor_migration_modifier
-				months = short_modifier_time
+				months = 3
 			}
 		}
-		scope:snow_disaster_state = {
+		scope:snow_disaster_state.state_region = {
 			add_devastation = 15
 		}
 	}
@@ -161,43 +135,16 @@ snow_disaster_events.3 = { #AVALANCHE
 		}
 	}
 
-	option = { #No extra help
-		name = snow_disaster_events.3.a
-		default_option = yes
-		scope:snow_disaster_state = {
-			add_devastation = 20
-		}
-		custom_tooltip = natural_disaster_variable_tt
-		hidden_effect = {
-			random_list = {
-				20 = {
-					random_scope_state = {
-						limit = {
-							is_incorporated = yes
-						}
-						set_variable = {
-							name = natural_disaster_variable
-							months = short_modifier_time
-						}
-					}
-				}
-				80 = {
-				}
-			}
-		}
-	}
-
 	option = { #
 		name = snow_disaster_events.3.a
 		default_option = yes
 		scope:snow_disaster_events = {
 			add_modifier = {
 				name = canada_development_event_bad_minor_migration_modifier
-				multiplier = money_amount_multiplier_medium
-				months = short_modifier_time
+				months = 6
 			}
 		}
-		scope:snow_disaster_state = {
+		scope:snow_disaster_state.state_region = {
 			add_devastation = 15
 		}
 	}
@@ -240,32 +187,6 @@ flood_disaster_events.1 = { #MAJOR FLOOD
 		}
 	}
 
-	option = { #No extra help
-		name = flood_disaster_events.1.a
-		default_option = yes
-		scope:flood_disaster_events.state_region = {
-			add_devastation = 20
-		}
-		custom_tooltip = natural_disaster_variable_tt
-		hidden_effect = {
-			random_list = {
-				20 = {
-					random_scope_state = {
-						limit = {
-							is_incorporated = yes
-						}
-						set_variable = {
-							name = natural_disaster_variable
-							months = short_modifier_time
-						}
-					}
-				}
-				80 = {
-				}
-			}
-		}
-	}
-
 	option = { #
 		name = flood_disaster_events.1.a
 		default_option = yes
@@ -276,7 +197,7 @@ flood_disaster_events.1 = { #MAJOR FLOOD
 				months = short_modifier_time
 			}
 		}
-		scope:snow_disaster_state = {
+		scope:snow_disaster_state.state_region = {
 			add_devastation = 5
 		}
 	}
@@ -328,12 +249,7 @@ fire_disaster_events.1 = { #MAJOR FLOOD
 				months = 12
 			}
 		}
-	}
-	
-	option = { #
-		name = fire_disaster_events.1.b
-		default_option = yes
-		scope:fire_disaster_events = {
+		scope:fire_disaster_events.state_region = {
 			add_devastation = 25
 		}
 	}
@@ -385,7 +301,9 @@ hail_disaster_events.1 = { #MAJOR FLOOD
 				name = canada_development_event_bad_minor_migration_modifier
 				months = 12
 			}
-			add_devastation = 5
+		}
+		scope:good_dev_event.state_region = {
+			add_devastation = -5
 		}
 	}
 }
@@ -427,7 +345,7 @@ cold_disaster_events.1 = { #MAJOR cold
 		}
 	}
 
-	option = { #
+	option = {
 		name = cold_disaster_events.1.a
 		default_option = yes
 		scope:cold_disaster_events.state_region = {
@@ -435,8 +353,11 @@ cold_disaster_events.1 = { #MAJOR cold
 				name = canada_development_event_bad_minor_migration_modifier
 				months = 12
 			}
-			add_devastation = 5
 		}
+		scope:good_dev_event.state_region = {
+			add_devastation = -5
+		}
+	}
 	}
 }
 
@@ -487,13 +408,15 @@ good_dev_event.1 = { #MAJOR cold
 			}
 		}
 	}
-
-	option = { less dev
-		name = good_dev_event.1.b\
-		scope:good_dev_event = {
+	
+	option = { #less dev
+		name = good_dev_event.1.b
+		scope:good_dev_event.state_region = {
 			add_devastation = -5
 		}
 	}
+	
+	
 }
 
 good_dev_event.2 = { #MAJOR cold
@@ -537,20 +460,20 @@ good_dev_event.2 = { #MAJOR cold
 		scope:good_dev_event = {
 			add_modifier = {
 				name = canada_great_migration
-				months = short_modifier_time
+				months = 6
 			}
 		}
 	}
 
 	option = { #less dev
 		name = good_dev_event.1.b\
-		scope:good_dev_event = {
+		scope:good_dev_event.state_region = {
 			add_devastation = -25
 		}
 	}
 }
 
-good_dev_event.3 = { #MAJOR cold
+good_dev_event.3 = { #MAJOR good
 	type = country_event
 	placement = scope:good_dev_event
 
@@ -598,7 +521,7 @@ good_dev_event.3 = { #MAJOR cold
 
 	option = { #less dev
 		name = good_dev_event.1.b
-		scope:good_dev_event = {
+		scope:good_dev_event.state_region = {
 			add_devastation = -100
 		}
 	}
