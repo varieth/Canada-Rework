@@ -72,8 +72,8 @@ the_last_great_frontier.2 = {
 		random_scope_state = {
 			limit = {
 				OR = {
-					state_region = s:STATE_ONTARIO
-					state_region = s:STATE_QUEBEC
+					state_region = s:STATE_LOWER_ONTARIO
+					state_region = s:STATE_LOWER_QUEBEC
 				}
 			}
 			save_scope_as = the_gold_of_the_canadas_end
@@ -86,8 +86,8 @@ the_last_great_frontier.2 = {
 		every_scope_state = {
 			limit = {
 				OR = {
-					state_region = s:STATE_ONTARIO
-					state_region = s:STATE_QUEBEC
+					state_region = s:STATE_LOWER_ONTARIO
+					state_region = s:STATE_LOWER_QUEBEC
 				}
 			}
 			add_modifier = {

@@ -83,7 +83,7 @@ je_canada_north_migration = {
 		}
 		change_variable = {
 			name = canada_north_west_migration_goal
-			multiply = 1500000
+			multiply = 25000000
 		}
 		trigger_event = { id = crw_migration.100 popup = yes }
 	}
@@ -138,7 +138,7 @@ je_canada_north_migration = {
 			}
 			change_variable = {
 				name = canada_north_west_migration_goal
-				multiply = 1000000
+				multiply = 25000000
 			}
 		}
 	}

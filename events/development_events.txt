@@ -193,7 +193,6 @@ flood_disaster_events.1 = { #MAJOR FLOOD
 		scope:flood_disaster_events = {
 			add_modifier = {
 				name = canada_development_event_bad_minor_migration_modifier
-				multiplier = money_amount_multiplier_medium
 				months = short_modifier_time
 			}
 		}
